@@ -378,7 +378,7 @@ export const Bottom = () => {
         </div>
       </div>
       <div className="table-container">
-        <table className="table-container">
+        <table className="table-container-table">
           {data.map((item) => (
             <tr className="table-row" key={item.ID}>
               <td className="table-space"> </td>
@@ -467,7 +467,10 @@ export const Bottom = () => {
           ))}
         </table>
       </div>
-      <table>
+      <div className="table-bottom-container">
+
+     
+      <table className="table-bottom-style">
         <tr className="table-bottom-row">
           <td className="table-bottom-space"> </td>
           <td className="table-bottom-data-index">Total Incidencias</td>
@@ -569,6 +572,7 @@ export const Bottom = () => {
           <td className="table-bottom-data-space-big"> </td>
         </tr>
       </table>
+      </div>
     </div>
   );
 };
