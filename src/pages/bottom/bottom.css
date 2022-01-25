@@ -1,0 +1,10 @@
+.bottom{
+align-items: center;
+background-color: white;
+border-radius: 10px;
+display: flex;
+flex-direction: column;
+height: 719px;
+padding: 0px 0px 20px;
+width: 1736px;
+}

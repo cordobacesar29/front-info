@@ -1,0 +1,7 @@
+.top{
+    column-gap: 7.75px;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    height: 155px;
+    width: 1736px;
+}
