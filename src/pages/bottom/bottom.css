@@ -16,6 +16,25 @@
   max-height: 465px;
   width: 100%;
 }
+.top-bottom{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 100%;
+}
+.headers-top{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+}
+.headers{
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  width: 100%;
+}
 .table-space {
   border-bottom: 1px solid #dee0e2;
   border-top: 1px solid #dee0e2;

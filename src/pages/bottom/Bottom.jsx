@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { DotTable } from "../../components/shared/dotTable/DotTable";
-import { colorScale, sortInfo } from "../../utils/";
+import { colorScale, sortInfo, headersData } from "../../utils/";
 import "./bottom.css";
 export const Bottom = () => {
   const [data, setData] = useState([
@@ -366,7 +366,17 @@ export const Bottom = () => {
   }, [data, incidentsArray]);
   return (
     <div className="bottom">
-      <div className="top-bottom"></div>
+      <div className="top-bottom">
+        <div className="headers-top">
+          <span>Estados por store</span>
+          <span>...</span>
+        </div>
+        <div className="headers">
+          {headersData.map((item) => (
+            <span>{item}</span>
+          ))}
+        </div>
+      </div>
       <div className="table-container">
         <table className="table-container">
           {data.map((item) => (
