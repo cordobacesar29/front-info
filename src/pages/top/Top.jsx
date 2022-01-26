@@ -6,11 +6,10 @@ import { Dots } from "@dexma/ui-components";
 import { api } from "../../api/api";
 import "./top.css";
 export const Top = () => {
-  const [locations, setLocations] = useState(12);
-  const [loading, setloading] = useState(true);
-  const [storesComunication, setStoresComunication] = useState(23);
-  const [storeIncidents, setStoreIncidents] = useState(5);
-  const [storesWithoutIncidents, setStoresWithoutIncidents] = useState(33,4);
+  const [locations, setLocations] = useState(0);
+  const [storesComunication, setStoresComunication] = useState(0);
+  const [storeIncidents, setStoreIncidents] = useState(0);
+  const [storesWithoutIncidents, setStoresWithoutIncidents] = useState(0);
 
   useEffect(() => {
     api
