@@ -18,6 +18,8 @@
   color: #404145;
   font-size: 72px;
   line-height: 115%;
+  display: flex;
+  flex-wrap: nowrap;
 }
 .widget-label {
   color: #404145;
