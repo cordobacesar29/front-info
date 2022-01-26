@@ -2,6 +2,8 @@ import React, { useEffect, useState } from "react";
 import { DotTable } from "../../components/shared/dotTable/DotTable";
 import { colorScale, sortInfo, headersData } from "../../utils/";
 import "./bottom.css";
+import "./headersWidths.css";
+
 export const Bottom = () => {
   const [data, setData] = useState([
     {
@@ -368,13 +370,54 @@ export const Bottom = () => {
     <div className="bottom">
       <div className="top-bottom">
         <div className="headers-top">
-          <span>Estados por store</span>
+          <span className="span-estado-store">Estados por store</span>
           <span>...</span>
         </div>
-        <div className="headers">
-          {headersData.map((item) => (
-            <span>{item}</span>
-          ))}
+        <div className="headers-super-container">
+
+          <div className="headers-container0">
+            <div style={{ width: '15px' }}></div>
+
+            <div className="headers">
+              {headersData.slice(0, 3).map((item) => (
+                <span className={
+                  item === 'ID'
+                    ? 'headers-widths-id'
+                    : item === 'Ciudad' || item === 'Tipologia'
+                      ? 'headers-widths-ciudad'
+
+                      : ''
+                }>{item}</span>
+              ))}
+            </div>
+          </div>
+
+          <div className="headers-container">
+            <div style={{ width: '10px' }}></div>
+            <div className="headers">
+              {headersData.slice(3, 11).map((item) => (
+                <span className={
+                  item === 'ID'
+                    ? 'headers-widths-id'
+                    : item === 'Ciudad' || item === 'Tipologia'
+                      ? 'headers-widths-ciudad'
+                      : item === 'Comunicación' || item === 'Pasarela Clima' || item === 'Alumbrado' || item === 'Clima' || item === 'Banderola' || item === 'Rotulos' || item === 'Consumo Clima' || item === 'Confort'
+                        ? 'headers-widths-dots'
+                        : ''
+                }>{item}</span>
+              ))}
+            </div>
+          </div>
+          <div style={{ width: '10px' }}></div>
+          <div className="headers-container2">
+            <div className="headers">
+              {headersData.slice(11, 15).map((item) => (
+                <span className='headers-widths-impacto'
+
+                >{item}</span>
+              ))}
+            </div>
+          </div>
         </div>
       </div>
       <div className="table-container">
@@ -469,110 +512,110 @@ export const Bottom = () => {
       </div>
       <div className="table-bottom-container">
 
-     
-      <table className="table-bottom-style">
-        <tr className="table-bottom-row">
-          <td className="table-bottom-space"> </td>
-          <td className="table-bottom-data-index">Total Incidencias</td>
-          <td className="table-bottom-data">{newData?.Comunicacion?.false}</td>
-          <td className="table-bottom-data">
-            {newData?.Pasarela_Clima?.false}
-          </td>
-          <td className="table-bottom-data">{newData?.Alumbrado?.false}</td>
-          <td className="table-bottom-data">{newData?.Clima?.false}</td>
-          <td className="table-bottom-data">{newData?.Banderola?.false}</td>
-          <td className="table-bottom-data">{newData?.Rotulos?.false}</td>
-          <td className="table-bottom-data">{newData?.Consumo_Clima?.false}</td>
-          <td className="table-bottom-data">{newData?.Confort?.false}</td>
-          <td className="table-bottom-data-space"> </td>
-          <td className="table-bottom-data-space-big"> </td>
-        </tr>
-        <tr className="table-bottom-row">
-          <td className="table-bottom-space"> </td>
-          <td className="table-bottom-data-index">Total Stores</td>
-          <td className="table-bottom-data">{newData?.Comunicacion?.true}</td>
-          <td className="table-bottom-data">{newData?.Pasarela_Clima?.true}</td>
-          <td className="table-bottom-data">{newData?.Alumbrado?.true}</td>
-          <td className="table-bottom-data">{newData?.Clima?.true}</td>
-          <td className="table-bottom-data">{newData?.Banderola?.true}</td>
-          <td className="table-bottom-data">{newData?.Rotulos?.true}</td>
-          <td className="table-bottom-data">{newData?.Consumo_Clima?.true}</td>
-          <td className="table-bottom-data">{newData?.Confort?.true}</td>
-          <td className="table-bottom-data-space"> </td>
-          <td className="table-bottom-data-space-big"> </td>
-        </tr>
-        <tr className="table-bottom-row">
-          <td className="table-bottom-space"> </td>
-          <td className="table-bottom-data-index">% Incidencias</td>
-          <td
-            className="table-bottom-data"
-            style={{
-              backgroundColor: `rgba(255, 99, 71, ${newData?.Comunicacion?.percent})`,
-            }}
-          >
-            {newData?.Comunicacion?.percent}%
-          </td>
-          <td
-            className="table-bottom-data"
-            style={{
-              backgroundColor: `rgba(255, 99, 71, ${newData?.Pasarela_Clima?.percent})`,
-            }}
-          >
-            {newData?.Pasarela_Clima?.percent}%
-          </td>
-          <td
-            className="table-bottom-data"
-            style={{
-              backgroundColor: `rgba(255, 99, 71, ${newData?.Alumbrado?.percent})`,
-            }}
-          >
-            {newData?.Alumbrado?.percent}%
-          </td>
-          <td
-            className="table-bottom-data"
-            style={{
-              backgroundColor: `rgba(255, 99, 71, ${newData?.Clima?.percent})`,
-            }}
-          >
-            {newData?.Clima?.percent}%
-          </td>
-          <td
-            className="table-bottom-data"
-            style={{
-              backgroundColor: `rgba(255, 99, 71, ${newData?.Banderola?.percent})`,
-            }}
-          >
-            {newData?.Banderola?.percent}%
-          </td>
-          <td
-            className="table-bottom-data"
-            style={{
-              backgroundColor: `rgba(255, 99, 71, ${newData?.Rotulos?.percent})`,
-            }}
-          >
-            {newData?.Rotulos?.percent}%
-          </td>
-          <td
-            className="table-bottom-data"
-            style={{
-              backgroundColor: `rgba(255, 99, 71, ${newData?.Consumo_Clima?.percent})`,
-            }}
-          >
-            {newData?.Consumo_Clima?.percent}%
-          </td>
-          <td
-            className="table-bottom-data"
-            style={{
-              backgroundColor: `rgba(255, 99, 71, ${newData?.Confort?.percent})`,
-            }}
-          >
-            {newData?.Confort?.percent}%
-          </td>
-          <td className="table-bottom-data-space"> </td>
-          <td className="table-bottom-data-space-big"> </td>
-        </tr>
-      </table>
+
+        <table className="table-bottom-style">
+          <tr className="table-bottom-row">
+            <td className="table-bottom-space"> </td>
+            <td className="table-bottom-data-index">Total Incidencias</td>
+            <td className="table-bottom-data">{newData?.Comunicacion?.false}</td>
+            <td className="table-bottom-data">
+              {newData?.Pasarela_Clima?.false}
+            </td>
+            <td className="table-bottom-data">{newData?.Alumbrado?.false}</td>
+            <td className="table-bottom-data">{newData?.Clima?.false}</td>
+            <td className="table-bottom-data">{newData?.Banderola?.false}</td>
+            <td className="table-bottom-data">{newData?.Rotulos?.false}</td>
+            <td className="table-bottom-data">{newData?.Consumo_Clima?.false}</td>
+            <td className="table-bottom-data">{newData?.Confort?.false}</td>
+            <td className="table-bottom-data-space"> </td>
+            <td className="table-bottom-data-space-big"> </td>
+          </tr>
+          <tr className="table-bottom-row">
+            <td className="table-bottom-space"> </td>
+            <td className="table-bottom-data-index">Total Stores</td>
+            <td className="table-bottom-data">{newData?.Comunicacion?.true}</td>
+            <td className="table-bottom-data">{newData?.Pasarela_Clima?.true}</td>
+            <td className="table-bottom-data">{newData?.Alumbrado?.true}</td>
+            <td className="table-bottom-data">{newData?.Clima?.true}</td>
+            <td className="table-bottom-data">{newData?.Banderola?.true}</td>
+            <td className="table-bottom-data">{newData?.Rotulos?.true}</td>
+            <td className="table-bottom-data">{newData?.Consumo_Clima?.true}</td>
+            <td className="table-bottom-data">{newData?.Confort?.true}</td>
+            <td className="table-bottom-data-space"> </td>
+            <td className="table-bottom-data-space-big"> </td>
+          </tr>
+          <tr className="table-bottom-row">
+            <td className="table-bottom-space"> </td>
+            <td className="table-bottom-data-index">% Incidencias</td>
+            <td
+              className="table-bottom-data"
+              style={{
+                backgroundColor: `rgba(255, 99, 71, ${newData?.Comunicacion?.percent})`,
+              }}
+            >
+              {newData?.Comunicacion?.percent}%
+            </td>
+            <td
+              className="table-bottom-data"
+              style={{
+                backgroundColor: `rgba(255, 99, 71, ${newData?.Pasarela_Clima?.percent})`,
+              }}
+            >
+              {newData?.Pasarela_Clima?.percent}%
+            </td>
+            <td
+              className="table-bottom-data"
+              style={{
+                backgroundColor: `rgba(255, 99, 71, ${newData?.Alumbrado?.percent})`,
+              }}
+            >
+              {newData?.Alumbrado?.percent}%
+            </td>
+            <td
+              className="table-bottom-data"
+              style={{
+                backgroundColor: `rgba(255, 99, 71, ${newData?.Clima?.percent})`,
+              }}
+            >
+              {newData?.Clima?.percent}%
+            </td>
+            <td
+              className="table-bottom-data"
+              style={{
+                backgroundColor: `rgba(255, 99, 71, ${newData?.Banderola?.percent})`,
+              }}
+            >
+              {newData?.Banderola?.percent}%
+            </td>
+            <td
+              className="table-bottom-data"
+              style={{
+                backgroundColor: `rgba(255, 99, 71, ${newData?.Rotulos?.percent})`,
+              }}
+            >
+              {newData?.Rotulos?.percent}%
+            </td>
+            <td
+              className="table-bottom-data"
+              style={{
+                backgroundColor: `rgba(255, 99, 71, ${newData?.Consumo_Clima?.percent})`,
+              }}
+            >
+              {newData?.Consumo_Clima?.percent}%
+            </td>
+            <td
+              className="table-bottom-data"
+              style={{
+                backgroundColor: `rgba(255, 99, 71, ${newData?.Confort?.percent})`,
+              }}
+            >
+              {newData?.Confort?.percent}%
+            </td>
+            <td className="table-bottom-data-space"> </td>
+            <td className="table-bottom-data-space-big"> </td>
+          </tr>
+        </table>
       </div>
-    </div>
+    </div >
   );
 };

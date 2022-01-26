@@ -1,3 +1,9 @@
+@font-face {
+  font-family: "SFProText-Regular";
+  src: local("SFProText-Regular"),
+    url("../../fonts/SFProText-Regular.ttf") format("truetype");
+}
+
 .bottom {
   align-items: center;
   background-color: white;
@@ -9,51 +15,55 @@
   width: 1736px;
 }
 
+
+
 .table-container {
 
   max-height: 465px;
   overflow-x: auto;
   overflow-y: scroll;
 }
-.table-container-table{
+
+.table-container-table {
   border-collapse: collapse;
   width: 100%;
 }
-.tablebottom-container{
+
+.tablebottom-container {
   padding-left: 16px;
   padding-right: 16px;
   width: 1656.780px;
+
 }
-.top-bottom{
+
+.top-bottom {
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
   width: 100%;
 }
-.headers-top{
+
+.headers-top {
   display: flex;
   align-items: center;
   justify-content: space-between;
   width: 100%;
 }
-.headers{
-  display: flex;
-  align-items: center;
-  justify-content: space-around;
-  width: 100%;
-}
+
 .table-space {
   border-bottom: 1px solid #dee0e2;
   border-top: 1px solid #dee0e2;
   height: 40px;
   width: 14px;
 }
-.table-bottom-style{
+
+.table-bottom-style {
   /* padding-left:16px;
   padding-right:16px;
   padding-bottom:24px; */
 }
+
 .table-bottom-space {
   border-bottom: 1px solid #dee0e2;
   height: 40px;
@@ -68,6 +78,7 @@
   text-decoration: underline;
   width: 105.73px;
 }
+
 .table-bottom-data-index {
   border-bottom: 1px solid #dee0e2;
   border-right: 1px solid white;
@@ -75,6 +86,7 @@
   width: 325px;
   text-align: start;
 }
+
 .table-data {
   border-bottom: 1px solid #dee0e2;
   border-right: 1px solid white;
@@ -83,12 +95,14 @@
   text-align: center;
   width: 105.73px;
 }
+
 .table-space-middle {
   height: 42px;
   width: 8px;
   background-color: white;
 }
-.table-bottom-data{
+
+.table-bottom-data {
   border-bottom: 1px solid #dee0e2;
   border-right: 1px solid white;
   height: 40px;
@@ -97,21 +111,27 @@
   font-size: 14px;
   font-weight: bold;
 }
+
 .table-bottom-data-space {
   width: 25px;
   height: 42px;
   background-color: white;
 }
-.table-bottom-data-space-big{
+
+.table-bottom-data-space-big {
   width: 410px;
   height: 42px;
   background-color: white;
 }
+
 .table-row:nth-child(even) {
   background-color: #f7f9fa;
 }
+
 .table-bottom-row:nth-child(odd) {
-  background-color: #f7f9fa;}
+  background-color: #f7f9fa;
+}
+
 tr:hover {
   background-color: #f7f9fa;
 }
