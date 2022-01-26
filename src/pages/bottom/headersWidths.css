@@ -7,7 +7,6 @@
 .span-estado-store {
     font-family: "SFProText-Regular";
     height: 20px;
-    /* font-size: 12px; */
     line-height: 20px;
     width: 100%;
     margin-right: 62px;
@@ -34,7 +33,7 @@
 .headers-container {
     display: flex;
     justify-content: start;
-    width: 50.2%;
+    width: 50.3%;
 }
 
 .headers-container2 {

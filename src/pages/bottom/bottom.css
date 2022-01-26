@@ -15,10 +15,7 @@
   width: 1736px;
 }
 
-
-
 .table-container {
-
   max-height: 465px;
   overflow-x: auto;
   overflow-y: scroll;
@@ -56,12 +53,6 @@
   border-top: 1px solid #dee0e2;
   height: 40px;
   width: 14px;
-}
-
-.table-bottom-style {
-  /* padding-left:16px;
-  padding-right:16px;
-  padding-bottom:24px; */
 }
 
 .table-bottom-space {

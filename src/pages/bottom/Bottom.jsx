@@ -377,16 +377,12 @@ export const Bottom = () => {
 
           <div className="headers-container0">
             <div style={{ width: '15px' }}></div>
-
             <div className="headers">
               {headersData.slice(0, 3).map((item) => (
                 <span className={
                   item === 'ID'
                     ? 'headers-widths-id'
-                    : item === 'Ciudad' || item === 'Tipologia'
-                      ? 'headers-widths-ciudad'
-
-                      : ''
+                    : 'headers-widths-ciudad'
                 }>{item}</span>
               ))}
             </div>
