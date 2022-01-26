@@ -396,15 +396,9 @@ export const Bottom = () => {
             <div style={{ width: '10px' }}></div>
             <div className="headers">
               {headersData.slice(3, 11).map((item) => (
-                <span className={
-                  item === 'ID'
-                    ? 'headers-widths-id'
-                    : item === 'Ciudad' || item === 'Tipologia'
-                      ? 'headers-widths-ciudad'
-                      : item === 'Comunicación' || item === 'Pasarela Clima' || item === 'Alumbrado' || item === 'Clima' || item === 'Banderola' || item === 'Rotulos' || item === 'Consumo Clima' || item === 'Confort'
-                        ? 'headers-widths-dots'
-                        : ''
-                }>{item}</span>
+                <span className='headers-widths-dots'
+
+                >{item}</span>
               ))}
             </div>
           </div>
