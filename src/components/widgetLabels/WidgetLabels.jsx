@@ -3,7 +3,7 @@ import "./widgetlabels.css";
 import { Tag } from "@dexma/ui-components";
 import { Dots } from "@dexma/ui-components";
 
-export const WidgetLabels = ({ item }) => {
+export const WidgetLabels = () => {
   const toasts = [
     "prueba",
     "prueba",
@@ -23,7 +23,7 @@ export const WidgetLabels = ({ item }) => {
         style={{
           color: "#404145",
           backGroundColor: "#F7F9FA",
-          marginLeft: "2px",
+          margin: "1px",
         }}
       >
         {toast}
@@ -39,7 +39,7 @@ export const WidgetLabels = ({ item }) => {
         </div>
       </div>
       <div className="widget-top">
-        <span>{item.string}</span>
+        <span>Tags seleccionados</span>
       </div>
     </div>
   );
