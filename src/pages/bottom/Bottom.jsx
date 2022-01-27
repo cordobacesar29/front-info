@@ -1,10 +1,12 @@
 import React, { useEffect, useState } from "react";
 import { api } from "../../api/api";
 import { DotTable } from "../../components/shared/dotTable/DotTable";
-import { colorScale, sortInfo, headersData } from "../../utils/";
+import { Dots } from '@dexma/ui-components'
+import { colorScale, sortInfo, headersData, sortHeaders } from "../../utils/";
 import "./bottom.css";
 import "./headersWidths.css";
 
+console.log(sortHeaders)
 export const Bottom = () => {
   const [data, setData] = useState([]);
   const [newData, setNewData] = useState();
@@ -23,6 +25,8 @@ export const Bottom = () => {
     "Total Stores",
     "%-Incidencias",
   ]);
+  const [dataSort, setDataSort] = useState([]);
+  console.log(dataSort)
 
   useEffect(() => {
     api.getDataTable().then((res) => setData(res.table));
@@ -30,6 +34,11 @@ export const Bottom = () => {
   useEffect(() => {
     data?.length !== 0 && setNewData(sortInfo(incidentsArray, data));
   }, [data, incidentsArray]);
+
+  useEffect(() => {
+    data?.length !== 0 && setDataSort(data);
+  }, [data]);
+
   return (
     <div className="bottom">
       <div className="top-bottom">
@@ -43,6 +52,7 @@ export const Bottom = () => {
             <div className="headers">
               {headersData.slice(0, 3).map((item) => (
                 <span
+                  onClick={(e) => setDataSort(sortHeaders(e, dataSort))}
                   className={
                     item === "ID"
                       ? "headers-widths-id"
@@ -59,7 +69,9 @@ export const Bottom = () => {
             <div style={{ width: "10px" }}></div>
             <div className="headers">
               {headersData.slice(3, 11).map((item) => (
-                <span className="headers-widths-dots">{item}</span>
+                <span
+                  onClick={(e) => setDataSort(sortHeaders(e, dataSort))}
+                  className="headers-widths-dots">{item}</span>
               ))}
             </div>
           </div>
@@ -67,101 +79,108 @@ export const Bottom = () => {
           <div className="headers-container2">
             <div className="headers">
               {headersData.slice(11, 15).map((item) => (
-                <span className="headers-widths-impacto">{item}</span>
+                <span
+                  onClick={(e) => setDataSort(sortHeaders(e, dataSort))}
+
+                  className="headers-widths-impacto">{item}</span>
               ))}
             </div>
           </div>
         </div>
       </div>
       <div className="table-container">
-        <table className="table-container-table">
-          {data.map((item) => (
-            <tr className="table-row" key={item.ID}>
-              <td className="table-space"> </td>
-              <td className="table-data-index">{item.ID}</td>
-              <td className="table-data">{item.Ciudad}</td>
-              <td className="table-data">{item.Tipologia}</td>
-              <td className="table-data">
-                {item.Comunicacion?.length !== 0 ? (
-                  <DotTable className={item.Pasarela_Clima ? "green" : "red"} />
-                ) : (
-                  "-"
-                )}
-              </td>
-              <td className="table-data">
-                {item.Pasarela_Clima?.length !== 0 ? (
-                  <DotTable className={item.Pasarela_Clima ? "green" : "red"} />
-                ) : (
-                  "-"
-                )}
-              </td>
-              <td className="table-data">
-                {item.Alumbrado?.length !== 0 ? (
-                  <DotTable className={item.Alumbrado ? "green" : "red"} />
-                ) : (
-                  "-"
-                )}
-              </td>
-              <td className="table-data">
-                {item.Clima?.length !== 0 ? (
-                  <DotTable className={item.Clima ? "green" : "red"} />
-                ) : (
-                  "-"
-                )}
-              </td>
-              <td className="table-data">
-                {item.Banderola?.length !== 0 ? (
-                  <DotTable className={item.Banderola ? "green" : "red"} />
-                ) : (
-                  "-"
-                )}
-              </td>
-              <td className="table-data">
-                {item.Rotulo?.length !== 0 ? (
-                  <DotTable className={item.Rotulo ? "green" : "red"} />
-                ) : (
-                  "-"
-                )}
-              </td>
-              <td className="table-data">
-                {item.Consumo_Clima?.length !== 0 ? (
-                  <DotTable className={item.Consumo_Clima ? "green" : "red"} />
-                ) : (
-                  "-"
-                )}
-              </td>
-              <td className="table-data">
-                {item.Confort?.length !== 0 ? (
-                  <DotTable className={item.Confort ? "green" : "red"} />
-                ) : (
-                  "-"
-                )}
-              </td>
-              <td className="table-space-middle"> </td>
-              <td className="table-data">
-                {item.Anomalías?.length !== 0 ? item.Anomalías : "-"}
-              </td>
-              <td className="table-data">
-                {item.Impacto_Anomalías?.length !== 0
-                  ? item.Impacto_Anomalías
-                  : "-"}
-              </td>
-              <td
-                className="table-data"
-                style={{
-                  backgroundColor: colorScale(item.Detected_Score),
-                }}
-              >
-                {item.Detected_Score?.length !== 0 ? item.Detected_Score : "-"}
-              </td>
-              <td className="table-data">
-                {item.Ahorro_Potencial?.length !== 0
-                  ? item.Ahorro_Potencial
-                  : "-"}
-              </td>
-            </tr>
-          ))}
-        </table>
+        {
+          dataSort?.length !== 0 ? (
+            <table className="table-container-table">
+              {dataSort.map((item) => (
+                <tr className="table-row" key={item.ID}>
+                  <td className="table-space"> </td>
+                  <td className="table-data-index">{item.ID}</td>
+                  <td className="table-data">{item.Ciudad}</td>
+                  <td className="table-data">{item.Tipologia}</td>
+                  <td className="table-data">
+                    {item.Comunicacion?.length !== 0 ? (
+                      <DotTable className={item.Pasarela_Clima ? "green" : "red"} />
+                    ) : (
+                      "-"
+                    )}
+                  </td>
+                  <td className="table-data">
+                    {item.Pasarela_Clima?.length !== 0 ? (
+                      <DotTable className={item.Pasarela_Clima ? "green" : "red"} />
+                    ) : (
+                      "-"
+                    )}
+                  </td>
+                  <td className="table-data">
+                    {item.Alumbrado?.length !== 0 ? (
+                      <DotTable className={item.Alumbrado ? "green" : "red"} />
+                    ) : (
+                      "-"
+                    )}
+                  </td>
+                  <td className="table-data">
+                    {item.Clima?.length !== 0 ? (
+                      <DotTable className={item.Clima ? "green" : "red"} />
+                    ) : (
+                      "-"
+                    )}
+                  </td>
+                  <td className="table-data">
+                    {item.Banderola?.length !== 0 ? (
+                      <DotTable className={item.Banderola ? "green" : "red"} />
+                    ) : (
+                      "-"
+                    )}
+                  </td>
+                  <td className="table-data">
+                    {item.Rotulo?.length !== 0 ? (
+                      <DotTable className={item.Rotulo ? "green" : "red"} />
+                    ) : (
+                      "-"
+                    )}
+                  </td>
+                  <td className="table-data">
+                    {item.Consumo_Clima?.length !== 0 ? (
+                      <DotTable className={item.Consumo_Clima ? "green" : "red"} />
+                    ) : (
+                      "-"
+                    )}
+                  </td>
+                  <td className="table-data">
+                    {item.Confort?.length !== 0 ? (
+                      <DotTable className={item.Confort ? "green" : "red"} />
+                    ) : (
+                      "-"
+                    )}
+                  </td>
+                  <td className="table-space-middle"> </td>
+                  <td className="table-data">
+                    {item.Anomalías?.length !== 0 ? item.Anomalías : "-"}
+                  </td>
+                  <td className="table-data">
+                    {item.Impacto_Anomalías?.length !== 0
+                      ? item.Impacto_Anomalías
+                      : "-"}
+                  </td>
+                  <td
+                    className="table-data"
+                    style={{
+                      backgroundColor: colorScale(item.Detected_Score),
+                    }}
+                  >
+                    {item.Detected_Score?.length !== 0 ? item.Detected_Score : "-"}
+                  </td>
+                  <td className="table-data">
+                    {item.Ahorro_Potencial?.length !== 0
+                      ? item.Ahorro_Potencial
+                      : "-"}
+                  </td>
+                </tr>
+              ))}
+            </table>) : (<Dots steps='3' size='5' />)}
+
+
       </div>
       <div className="table-bottom-container">
         <table className="table-bottom-style">
