@@ -24,6 +24,7 @@
 }
 
 .headers-container0 {
+    cursor: pointer;
     display: flex;
     justify-content: center;
     margin-left: 29px;
@@ -31,12 +32,14 @@
 }
 
 .headers-container1 {
+    cursor: pointer;
     display: flex;
-    justify-content: start;
+    justify-content: center;
     width: 50.3%;
 }
 
 .headers-container2 {
+    cursor: pointer;
     display: flex;
     align-items: start;
 }
