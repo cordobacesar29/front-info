@@ -29,16 +29,16 @@ export const Bottom = () => {
   const [dataSort, setDataSort] = useState(dummyData);
 
 
-  // useEffect(() => {
-  //   api.getDataTable().then((res) => setData(res.table));
-  // }, []);
-  // useEffect(() => {
-  //   data?.length !== 0 && setNewData(sortInfo(incidentsArray, data));
-  // }, [data, incidentsArray]);
+  useEffect(() => {
+    api.getDataTable().then((res) => setData(res.table));
+  }, []);
+  useEffect(() => {
+    data?.length !== 0 && setNewData(sortInfo(incidentsArray, data));
+  }, [data, incidentsArray]);
 
-  // useEffect(() => {
-  //   data?.length !== 0 && setDataSort(dummyData);
-  // }, [dataSort]);
+  useEffect(() => {
+    data?.length !== 0 && setDataSort(dummyData);
+  }, []);
 
   return (
     <div className="bottom">
@@ -49,11 +49,11 @@ export const Bottom = () => {
         </div>
         <div className="headers-super-container">
           <div className="headers-container0">
-            {/* <div style={{ width: "15px" }}></div> ` */}
+            <div style={{ width: "50px" }}></div> `
             <div className="headers">
               {headersData.slice(0, 3).map((item) => (
                 <span
-                  onClick={(e) => console.log(sortHeaders(e, dataSort))}
+                  onClick={(e) => setDataSort(sortHeaders(e, dataSort))}
                   className={
                     item === "ID"
                       ? "headers-widths-id"
@@ -67,7 +67,7 @@ export const Bottom = () => {
           </div>
 
           <div className="headers-container1">
-            <div style={{ width: "10px" }}></div>
+            {/* <div style={{ width: "10px" }}></div>  */}
             <div className="headers">
               {headersData.slice(3, 11).map((item) => (
                 <span
@@ -76,7 +76,7 @@ export const Bottom = () => {
               ))}
             </div>
           </div>
-          <div style={{ width: "10px" }}></div>
+          {/* <div style={{ width: "10px" }}></div> */}
           <div className="headers-container2">
             <div className="headers">
               {headersData.slice(11, 15).map((item) => (
