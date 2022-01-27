@@ -5,11 +5,11 @@
 }
 
 .span-estado-store {
+    display: flex;
     font-family: "SFProText-Regular";
     height: 20px;
     line-height: 20px;
     width: 100%;
-    margin-right: 62px;
     margin-top: 22.42px;
     margin-left: 20px;
     font-weight: 600;
@@ -35,12 +35,11 @@
 .headers-container1 {
     cursor: pointer;
     display: flex;
-    padding-left: 16px;
+    padding-left: 12px;
     width: 50.5%;
 }
 
 .headers-container2 {
-    width: 27%;
     cursor: pointer;
     display: flex;
 }
@@ -56,10 +55,10 @@
 .headers-widths-id {
     display: flex;
     align-items: center;
-    justify-content: start;
+    justify-content: flex-start;
     box-sizing: border-box;
     width: 108px;
-    padding-left: 15px;
+    padding-left: 18px;
     margin: 1px;
     height: 32px;
 
@@ -68,13 +67,13 @@
 .headers-widths-ciudad {
     display: flex;
     align-items: center;
-    justify-content: start;
+    justify-content: flex-start;
     box-sizing: border-box;
     margin: 1px;
     width: 108px;
     height: 32px;
     align-items: center;
-    padding-left: 36px;
+    padding-left: 30px;
 }
 
 
