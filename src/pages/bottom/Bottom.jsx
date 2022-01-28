@@ -6,7 +6,28 @@ import { colorScale, sortInfo, headersData, sortHeaders } from "../../utils/";
 import "./bottom.css";
 import "./headersWidths.css";
 import { dummyData } from '../../utils/dummyData'
+import XLSX from 'xlsx';
 
+
+
+
+const downloadExcel = () => {
+  const newData = dummyData.map(row => {
+    delete row.tableData
+    return row
+  })
+  const workSheet = XLSX.utils.json_to_sheet(newData)
+
+
+  const workBook = XLSX.utils.book_new()
+  XLSX.utils.book_append_sheet(workBook, workSheet, "dummydata")
+  //Buffer
+  let buf = XLSX.write(workBook, { bookType: "xlsx", type: "buffer" })
+  //Binary string
+  XLSX.write(workBook, { bookType: "xlsx", type: "binary" })
+  //Download
+  XLSX.writeFile(workBook, "dashboard.xlsx")
+}
 
 export const Bottom = () => {
   const [data, setData] = useState([]);
@@ -40,7 +61,7 @@ export const Bottom = () => {
       <div className="top-bottom">
         <div className="headers-top">
           <span className="span-estado-store">Estados por store</span>
-          <span>...</span>
+          <span style={{ cursor: 'pointer' }} onClick={downloadExcel}>...</span>
         </div>
         <div className="headers-super-container">
           <div className="headers-container0">
@@ -292,6 +313,6 @@ export const Bottom = () => {
           </tr>
         </table>
       </div>
-    </div>
+    </div >
   );
 };
