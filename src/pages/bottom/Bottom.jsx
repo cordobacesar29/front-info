@@ -11,7 +11,7 @@ import { ExcelTable } from "../../utils/exelData";
 
 export const Bottom = () => {
   const [data, setData] = useState([]);
-  const [newData, setNewData] = useState(dummyData);
+  const [newData, setNewData] = useState();
   const [incidentsArray] = useState([
     "Comunicacion",
     "Pasarela_Clima",
