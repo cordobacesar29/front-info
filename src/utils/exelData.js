@@ -1,16 +1,19 @@
+import { dummyData } from '.'
 import * as R from 'ramda'
 import XLSX from 'xlsx';
+
+
 
 export const ExcelTable = (data) => {
     const incidentsDataReduce = data.map(item => {
         return R.values(R.pick(
             [
-                "Comunicación",
+                "Comunicacion",
                 "Pasarela_Clima",
                 "Alumbrado",
                 "Clima",
                 "Banderola",
-                "Rotulos",
+                "Rotulo",
                 "Consumo_Clima",
                 "Confort"], item))
     })

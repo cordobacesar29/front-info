@@ -11,7 +11,7 @@ import { ExcelTable } from "../../utils/exelData";
 
 export const Bottom = () => {
   const [data, setData] = useState([]);
-  const [newData, setNewData] = useState();
+  const [newData, setNewData] = useState(dummyData);
   const [incidentsArray] = useState([
     "Comunicacion",
     "Pasarela_Clima",
@@ -23,16 +23,16 @@ export const Bottom = () => {
     "Confort",
   ]);
 
-  const [dataSort, setDataSort] = useState(data);
+  const [dataSort, setDataSort] = useState(dummyData);
   useEffect(() => {
     api.getDataTable().then((res) => setData(res.table));
   }, []);
   useEffect(() => {
-    data?.length !== 0 && setNewData(sortInfo(incidentsArray, dummyData));
-  }, [dummyData, incidentsArray]);
+    data?.length !== 0 && setNewData(sortInfo(incidentsArray, data));
+  }, [data, incidentsArray]);
 
   useEffect(() => {
-    data?.length !== 0 && setDataSort(dummyData);
+    data?.length !== 0 && setDataSort(data);
   }, [data]);
 
 
@@ -42,8 +42,7 @@ export const Bottom = () => {
         <div className="headers-top">
           <span className="span-estado-store">Estados por store</span>
           {dataSort.length !== 0 ?
-            <span style={{ cursor: 'pointer' }} onClick={ExcelTable(data)}>...</span>
-            //poner <Dots /> cuando este listo
+            <span style={{ cursor: 'pointer' }} onClick={ExcelTable(dummyData)}>...</span>
             : <span style={{ cursor: 'pointer' }} onClick={ExcelTable(dummyData)}>...</span>}
         </div>
         <div className="headers-super-container">
