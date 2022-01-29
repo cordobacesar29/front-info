@@ -49,6 +49,10 @@
   width: 100%;
 }
 
+.dots-span {
+  margin: 0rem 2rem;
+}
+
 .table-space {
   border-bottom: 1px solid #dee0e2;
   border-top: 1px solid #dee0e2;
