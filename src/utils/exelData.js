@@ -1,8 +1,5 @@
-import { dummyData } from '.'
 import * as R from 'ramda'
 import XLSX from 'xlsx';
-
-
 
 export const ExcelTable = (data) => {
     const incidentsDataReduce = data.map(item => {

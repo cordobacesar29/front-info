@@ -30,7 +30,7 @@ export const Top = () => {
       <Widget>
         <div className="widget-left">
           {
-            locations ? <span className="widget-number">{locations}</span>
+            locations !== null || undefined ? <span className="widget-number">{locations}</span>
             : 
             <Dots steps={3} size={6}/>
           }
@@ -43,7 +43,7 @@ export const Top = () => {
       <Widget>
         <div className="store-with-dot">
           {
-            storesComunication 
+            storesComunication !== null || undefined
             ? 
             <div className="top-label">
               <Dot style={{ backgroundColor: "#F25A5A",width:"16px",height:"16px",borderRadius:"50%" }} />
@@ -58,7 +58,7 @@ export const Top = () => {
       <Widget>
         <div className="store-with-dot">
           {
-            storeIncidents ? 
+            storeIncidents !== null || undefined ? 
               <div className="top-label">
                 <Dot style={{ backgroundColor: "#F25A5A",width:"16px",height:"16px",borderRadius:"50%" }} />
                 <span className="widget-number">{storeIncidents}</span>
@@ -71,7 +71,7 @@ export const Top = () => {
       </Widget>
       <Widget>
         <div className="widget-left">
-          {storesWithoutIncidents ? 
+          {storesWithoutIncidents !== null || undefined ? 
           <span className="widget-number">{`${storesWithoutIncidents}%`}</span>
           :
             <Dots steps={3} size={6} />
