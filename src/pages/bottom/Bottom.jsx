@@ -6,28 +6,8 @@ import { colorScale, sortInfo, headersData, sortHeaders } from "../../utils/";
 import "./bottom.css";
 import "./headersWidths.css";
 import { dummyData } from '../../utils/dummyData'
-import XLSX from 'xlsx';
+import { ExcelTable } from "../../utils/exelData";
 
-
-
-
-const downloadExcel = () => {
-  const newData = dummyData.map(row => {
-    delete row.tableData
-    return row
-  })
-  const workSheet = XLSX.utils.json_to_sheet(newData)
-
-
-  const workBook = XLSX.utils.book_new()
-  XLSX.utils.book_append_sheet(workBook, workSheet, "dummydata")
-  //Buffer
-  let buf = XLSX.write(workBook, { bookType: "xlsx", type: "buffer" })
-  //Binary string
-  XLSX.write(workBook, { bookType: "xlsx", type: "binary" })
-  //Download
-  XLSX.writeFile(workBook, "dashboard.xlsx")
-}
 
 export const Bottom = () => {
   const [data, setData] = useState([]);
@@ -43,25 +23,28 @@ export const Bottom = () => {
     "Confort",
   ]);
 
-  const [dataSort, setDataSort] = useState(dummyData);
-
+  const [dataSort, setDataSort] = useState(data);
   useEffect(() => {
     api.getDataTable().then((res) => setData(res.table));
   }, []);
   useEffect(() => {
-    data?.length !== 0 && setNewData(sortInfo(incidentsArray, data));
-  }, [data, incidentsArray]);
+    data?.length !== 0 && setNewData(sortInfo(incidentsArray, dummyData));
+  }, [dummyData, incidentsArray]);
 
   useEffect(() => {
     data?.length !== 0 && setDataSort(dummyData);
   }, [data]);
+
 
   return (
     <div className="bottom">
       <div className="top-bottom">
         <div className="headers-top">
           <span className="span-estado-store">Estados por store</span>
-          <span style={{ cursor: 'pointer' }} onClick={downloadExcel}>...</span>
+          {dataSort.length !== 0 ?
+            <span style={{ cursor: 'pointer' }} onClick={ExcelTable(data)}>...</span>
+            //poner <Dots /> cuando este listo
+            : <span style={{ cursor: 'pointer' }} onClick={ExcelTable(dummyData)}>...</span>}
         </div>
         <div className="headers-super-container">
           <div className="headers-container0">
