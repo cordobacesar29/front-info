@@ -179,7 +179,7 @@ export const Bottom = () => {
             <td className="table-bottom-data-index">Total Incidencias</td>
             <td className="table-bottom-data">
               {
-                newData?.Comunicacion?.false !== null && undefined ? 
+                newData?.Comunicacion?.false !== undefined ? 
                   newData?.Comunicacion?.false
                 :
                   <Dots steps={3} size={3}/>
@@ -187,7 +187,7 @@ export const Bottom = () => {
             </td>
             <td className="table-bottom-data">
               {
-                newData?.Pasarela_Clima?.false !== null && undefined ?
+                newData?.Pasarela_Clima?.false !== undefined ?
                   newData?.Pasarela_Clima?.false
                 :
                   <Dots steps={3} size={3}/>
@@ -195,7 +195,7 @@ export const Bottom = () => {
             </td>
             <td className="table-bottom-data">
               {
-                newData?.Alumbrado?.false !== null && undefined ? 
+                newData?.Alumbrado?.false !== undefined ? 
                   newData?.Alumbrado?.false
                 :
                   <Dots steps={3} size={3}/>
@@ -203,7 +203,7 @@ export const Bottom = () => {
             </td>
             <td className="table-bottom-data">
               {
-                newData?.Clima?.false !== null && undefined ? 
+                newData?.Clima?.false !== undefined ? 
                   newData?.Clima?.false
                 :
                   <Dots steps={3} size={3}/>
@@ -211,7 +211,7 @@ export const Bottom = () => {
             </td>
             <td className="table-bottom-data">
               {
-                newData?.Banderola?.false !== null && undefined ? 
+                newData?.Banderola?.false !== undefined ? 
                   newData?.Banderola?.false
                 :
                   <Dots steps={3} size={3}/>
@@ -219,7 +219,7 @@ export const Bottom = () => {
             </td>
             <td className="table-bottom-data">
               {
-                newData?.Rotulos?.false !== null && undefined ? 
+                newData?.Rotulos?.false !== undefined ? 
                   newData?.Rotulos?.false
                 :
                   <Dots steps={3} size={3}/>
@@ -227,7 +227,7 @@ export const Bottom = () => {
             </td>
             <td className="table-bottom-data">
               {
-                newData?.Consumo_Clima?.false !== null && undefined ? 
+                newData?.Consumo_Clima?.false !== undefined ? 
                   newData?.Consumo_Clima?.false
                 :
                   <Dots steps={3} size={3}/>
@@ -235,7 +235,7 @@ export const Bottom = () => {
             </td>
             <td className="table-bottom-data">
               {
-                newData?.Confort?.false !== null && undefined ? 
+                newData?.Confort?.false !== undefined ? 
                   newData?.Confort?.false
                 :
                   <Dots steps={3} size={3}/>
@@ -249,7 +249,7 @@ export const Bottom = () => {
             <td className="table-bottom-data-index">Total Stores</td>
             <td className="table-bottom-data">
             {
-                newData?.Comunicacion?.true !== null && undefined ? 
+                newData?.Comunicacion?.true !== undefined ? 
                   newData?.Comunicacion?.true
                 :
                   <Dots steps={3} size={3}/>
@@ -257,7 +257,7 @@ export const Bottom = () => {
             </td>
             <td className="table-bottom-data">
               {
-                newData?.Pasarela_Clima?.true !== null && undefined ? 
+                newData?.Pasarela_Clima?.true !== undefined ? 
                   newData?.Pasarela_Clima?.true
                 :
                   <Dots steps={3} size={3}/>
@@ -265,7 +265,7 @@ export const Bottom = () => {
             </td>
             <td className="table-bottom-data">
               {
-                newData?.Alumbrado?.true !== null && undefined ? 
+                newData?.Alumbrado?.true !== undefined ? 
                   newData?.Alumbrado?.true
                 :
                   <Dots steps={3} size={3}/>
@@ -273,7 +273,7 @@ export const Bottom = () => {
             </td>
             <td className="table-bottom-data">
               {
-                newData?.Clima?.true !== null && undefined ? 
+                newData?.Clima?.true !== undefined ? 
                   newData?.Clima?.true
                 :
                   <Dots steps={3} size={3}/>
@@ -281,7 +281,7 @@ export const Bottom = () => {
             </td>
             <td className="table-bottom-data">
               {
-                newData?.Banderolas?.true !== null && undefined ? 
+                newData?.Banderolas?.true !== undefined ? 
                   newData?.Banderolas?.true
                 :
                   <Dots steps={3} size={3}/>
@@ -289,7 +289,7 @@ export const Bottom = () => {
             </td>
             <td className="table-bottom-data">
             {
-                newData?.Rotulos?.true !== null && undefined ? 
+                newData?.Rotulos?.true !== undefined ? 
                   newData?.Rotulos?.true
                 :
                   <Dots steps={3} size={3}/>
@@ -297,7 +297,7 @@ export const Bottom = () => {
             </td>
             <td className="table-bottom-data">
               {
-                newData?.Consumo_Clima?.true !== null && undefined ? 
+                newData?.Consumo_Clima?.true !== undefined ? 
                   newData?.Consumo_Clima?.true
                 :
                   <Dots steps={3} size={3}/>
@@ -305,7 +305,7 @@ export const Bottom = () => {
             </td>
             <td className="table-bottom-data">
               {
-                newData?.Confort?.true !== null && undefined ? 
+                newData?.Confort?.true !== undefined ? 
                   newData?.Confort?.true
                 :
                   <Dots steps={3} size={3}/>
@@ -324,7 +324,7 @@ export const Bottom = () => {
               }}
             >
               {
-                newData?.Comunicacion?.percent !== null && undefined ? 
+                newData?.Comunicacion?.percent !== undefined ? 
                   `${newData?.Comunicacion?.percent}%`
                 :
                   <Dots steps={3} size={3}/>
@@ -337,7 +337,7 @@ export const Bottom = () => {
               }}
             >
               {
-                newData?.Pasarela_Clima?.percent !== null && undefined ? 
+                newData?.Pasarela_Clima?.percent !== undefined ? 
                   `${newData?.Pasarela_Clima?.percent}%`
                 :
                   <Dots steps={3} size={3}/>
@@ -350,7 +350,7 @@ export const Bottom = () => {
               }}
             >
               {
-                newData?.Alumbrado?.percent !== null && undefined ? 
+                newData?.Alumbrado?.percent !== undefined ? 
                   `${newData?.Alumbrado?.percent}%`
                 :
                   <Dots steps={3} size={3}/>
@@ -363,7 +363,7 @@ export const Bottom = () => {
               }}
             >
               {
-                newData?.Clima?.percent !== null && undefined ? 
+                newData?.Clima?.percent !== undefined ? 
                   `${newData?.Clima?.percent}%`
                 :
                   <Dots steps={3} size={3}/>
@@ -376,7 +376,7 @@ export const Bottom = () => {
               }}
             >
               {
-                newData?.Banderola?.percent !== null && undefined ? 
+                newData?.Banderola?.percent !== undefined ? 
                   `${newData?.Banderola?.percent}%`
                 :
                   <Dots steps={3} size={3}/>
@@ -389,7 +389,7 @@ export const Bottom = () => {
               }}
             >
               {
-                newData?.Rotulos?.percent !== null && undefined ? 
+                newData?.Rotulos?.percent !== undefined ? 
                   `${newData?.Rotulos?.percent}%`
                 :
                   <Dots steps={3} size={3}/>
@@ -402,7 +402,7 @@ export const Bottom = () => {
               }}
             >
               {
-                newData?.Consumo_Clima?.percent !== null && undefined ? 
+                newData?.Consumo_Clima?.percent !== undefined ? 
                   `${newData?.Consumo_Clima?.percent}%`
                 :
                   <Dots steps={3} size={3}/>
@@ -415,7 +415,7 @@ export const Bottom = () => {
               }}
             >
               {
-                newData?.Confort?.percent !== null && undefined ? 
+                newData?.Confort?.percent !== undefined ? 
                   `${newData?.Confort?.percent}%`
                 :
                   <Dots steps={3} size={3}/>
