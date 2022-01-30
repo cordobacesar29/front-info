@@ -281,8 +281,8 @@ export const Bottom = () => {
             </td>
             <td className="table-bottom-data">
               {
-                newData?.Banderolas?.true !== undefined ? 
-                  newData?.Banderolas?.true
+                newData?.Banderola?.true !== undefined ? 
+                  newData?.Banderola?.true
                 :
                   <Dots steps={3} size={3}/>
               }
